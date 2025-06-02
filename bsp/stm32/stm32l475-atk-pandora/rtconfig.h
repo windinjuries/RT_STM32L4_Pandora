@@ -250,13 +250,6 @@
 
 /* LVGL: powerful and easy-to-use embedded GUI library */
 
-#define PKG_USING_LVGL
-#define PKG_LVGL_THREAD_PRIO 20
-#define PKG_LVGL_THREAD_STACK_SIZE 4096
-#define PKG_LVGL_DISP_REFR_PERIOD 5
-#define PKG_LVGL_USING_V080311
-#define PKG_LVGL_VER_NUM 0x080311
-#define PKG_USING_LV_MUSIC_DEMO
 /* end of LVGL: powerful and easy-to-use embedded GUI library */
 
 /* u8g2: a monochrome graphic library */
@@ -395,9 +388,6 @@
 /* Onboard Peripheral Drivers */
 
 #define BSP_USING_STLINK_TO_USART
-#define BSP_USING_SPI_LCD
-#define BSP_USING_LVGL
-#define BSP_USING_LVGL_DEMO
 /* end of Onboard Peripheral Drivers */
 
 /* On-chip Peripheral Drivers */
@@ -410,8 +400,6 @@
 #define BSP_UART2_RX_USING_DMA
 #define BSP_UART2_TX_USING_DMA
 #define BSP_USING_SPI
-#define BSP_USING_SPI3
-#define BSP_SPI3_TX_USING_DMA
 #define BSP_USING_PWM
 #define BSP_USING_PWM4
 #define BSP_USING_PWM4_CH2
