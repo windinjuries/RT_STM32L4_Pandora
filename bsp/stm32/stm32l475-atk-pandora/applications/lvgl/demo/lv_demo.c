@@ -13,6 +13,6 @@
 void lv_user_gui_init(void)
 {
     /* display demo; you may replace with your LVGL application at here */
-    extern void lv_demo_calendar(void);
-    lv_demo_calendar();
+    extern void lv_demo_custom(void);
+    lv_demo_custom();
 }

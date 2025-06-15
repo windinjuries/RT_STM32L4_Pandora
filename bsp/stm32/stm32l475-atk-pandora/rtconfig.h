@@ -10,6 +10,17 @@
 
 /* rt_vsnprintf options */
 
+#define RT_KLIBC_USING_VSNPRINTF_LONGLONG
+#define RT_KLIBC_USING_VSNPRINTF_STANDARD
+#define RT_KLIBC_USING_VSNPRINTF_DECIMAL_SPECIFIERS
+#define RT_KLIBC_USING_VSNPRINTF_EXPONENTIAL_SPECIFIERS
+#define RT_KLIBC_USING_VSNPRINTF_WRITEBACK_SPECIFIER
+#define RT_KLIBC_USING_VSNPRINTF_CHECK_NUL_IN_FORMAT_SPECIFIER
+#define RT_KLIBC_USING_VSNPRINTF_INTEGER_BUFFER_SIZE 32
+#define RT_KLIBC_USING_VSNPRINTF_DECIMAL_BUFFER_SIZE 32
+#define RT_KLIBC_USING_VSNPRINTF_FLOAT_PRECISION 6
+#define RT_KLIBC_USING_VSNPRINTF_MAX_INTEGRAL_DIGITS_FOR_DECIMAL 9
+#define RT_KLIBC_USING_VSNPRINTF_LOG10_TAYLOR_TERMS 4
 /* end of rt_vsnprintf options */
 
 /* rt_vsscanf options */
@@ -147,8 +158,12 @@
 #define RT_USING_SERIAL_V1
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_I2C
+#define RT_USING_I2C_BITOPS
 #define RT_USING_PWM
 #define RT_USING_SPI
+#define RT_USING_SENSOR
+#define RT_USING_SENSOR_CMD
 #define RT_USING_PIN
 /* end of Device Drivers */
 
@@ -193,10 +208,6 @@
 
 /* end of Using USB legacy version */
 /* end of RT-Thread Components */
-
-/* RT-Thread Utestcases */
-
-/* end of RT-Thread Utestcases */
 
 /* RT-Thread online packages */
 
@@ -312,6 +323,15 @@
 
 /* sensors drivers */
 
+#define PKG_USING_MPU6XXX
+#define PKG_USING_MPU6XXX_V111
+#define PKG_USING_MPU6XXX_SAMPLE
+#define PKG_USING_MPU6XXX_ACCE
+#define PKG_USING_MPU6XXX_GYRO
+#define PKG_USING_MPU6XXX_MAG
+#define PKG_USING_AP3216C
+#define AP3216C_USING_SENSOR_DEVICE
+#define PKG_USING_AP3216C_LATEST_VERSION
 /* end of sensors drivers */
 
 /* touch drivers */
@@ -398,6 +418,8 @@
 #define BSP_USING_SPI_LCD
 #define BSP_USING_LVGL
 #define BSP_USING_LVGL_DEMO
+#define BSP_USING_ICM20608
+#define BSP_USING_AP3216C
 /* end of Onboard Peripheral Drivers */
 
 /* On-chip Peripheral Drivers */
@@ -412,6 +434,10 @@
 #define BSP_USING_SPI
 #define BSP_USING_SPI3
 #define BSP_SPI3_TX_USING_DMA
+#define BSP_USING_I2C
+#define BSP_USING_I2C3
+#define BSP_I2C3_SCL_PIN 32
+#define BSP_I2C3_SDA_PIN 33
 #define BSP_USING_PWM
 #define BSP_USING_PWM4
 #define BSP_USING_PWM4_CH2

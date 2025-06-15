@@ -16,13 +16,18 @@
 #include <rtdevice.h>
 #endif /* RT_USING_NANO */
 
+#include "data_capture.h"
+
 /* defined the LED0 pin: PE7 */
 #define LED0_PIN    GET_PIN(E, 7)
-
+static rt_thread_t tid1 = RT_NULL;
 int main(void)
 {
     /* set LED0 pin mode to output */
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
+    tid1 = rt_thread_create("data", mpu6xxx_poll, RT_NULL, 4096, 20, 10);
+		rt_thread_startup(tid1);
+    // rt_thread_startup
 
     while (1)
     {
