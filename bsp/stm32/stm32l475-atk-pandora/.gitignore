@@ -40,3 +40,9 @@ RTE/
 settings/
 *.uvguix*
 cconfig.h
+
+
+// scons
+.compile_commands.json
+compile_commands.json
+

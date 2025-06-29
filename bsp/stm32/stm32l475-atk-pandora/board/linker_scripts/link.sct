@@ -11,5 +11,12 @@ LR_IROM1 0x08000000 0x00080000  {    ; load region size_region
   RW_IRAM1 0x20000000 0x00018000  {  ; RW data
    .ANY (+RW +ZI)
   }
+
+  MY_CUSTOM_SECTION 0x2000C000 0x000010 {
+    *(.ext_ram)
+  }
+  CUSTOM_FLASH 0x08010000 0x000010 {
+    *(.crc)         
+  }
 }
 

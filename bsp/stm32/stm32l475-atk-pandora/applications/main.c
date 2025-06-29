@@ -18,6 +18,9 @@
 
 #include "data_capture.h"
 
+volatile __attribute__((section(".ext_ram"))) unsigned char value_ram[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+volatile __attribute__((section(".crc"))) unsigned int crc32 = 0x12345678;
 /* defined the LED0 pin: PE7 */
 #define LED0_PIN    GET_PIN(E, 7)
 static rt_thread_t tid1 = RT_NULL;
@@ -27,10 +30,10 @@ int main(void)
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
     tid1 = rt_thread_create("data", mpu6xxx_poll, RT_NULL, 4096, 20, 10);
 		rt_thread_startup(tid1);
-    // rt_thread_startup
 
     while (1)
     {
+				rt_kprintf("addresss = %lld", &value_ram);
         rt_pin_write(LED0_PIN, PIN_HIGH);
         rt_thread_mdelay(500);
         rt_pin_write(LED0_PIN, PIN_LOW);
