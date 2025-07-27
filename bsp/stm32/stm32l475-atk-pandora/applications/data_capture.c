@@ -26,8 +26,8 @@ int mpu6xxx_poll()
     {
         mpu6xxx_get_accel(dev, &accel);
         mpu6xxx_get_gyro(dev, &gyro);
-        rt_kprintf("accel.x = %3d, accel.y = %3d, accel.z = %3d ", accel.x, accel.y, accel.z);
-        rt_kprintf("gyro.x = %3d gyro.y = %3d, gyro.z = %3d\n", gyro.x, gyro.y, gyro.z);
+//        rt_kprintf("accel.x = %3d, accel.y = %3d, accel.z = %3d ", accel.x, accel.y, accel.z);
+//        rt_kprintf("gyro.x = %3d gyro.y = %3d, gyro.z = %3d\n", gyro.x, gyro.y, gyro.z);
 				value = accel.x;
 			
 			

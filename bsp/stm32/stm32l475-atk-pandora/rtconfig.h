@@ -148,6 +148,14 @@
 
 /* DFS: device virtual file system */
 
+#define RT_USING_DFS
+#define DFS_USING_POSIX
+#define DFS_USING_WORKDIR
+#define DFS_FD_MAX 16
+#define RT_USING_DFS_V1
+#define DFS_FILESYSTEMS_MAX 4
+#define DFS_FILESYSTEM_TYPES_MAX 4
+#define RT_USING_DFS_DEVFS
 /* end of DFS: device virtual file system */
 
 /* Device Drivers */
@@ -182,6 +190,7 @@
 
 /* POSIX (Portable Operating System Interface) layer */
 
+#define RT_USING_POSIX_FS
 
 /* Interprocess Communication (IPC) */
 
@@ -255,6 +264,9 @@
 /* XML: Extensible Markup Language */
 
 /* end of XML: Extensible Markup Language */
+#define PKG_USING_LUA
+#define PKG_USING_LUA_LATEST_VERSION
+#define LUA_USING_PORTING_V534
 /* end of language packages */
 
 /* multimedia packages */

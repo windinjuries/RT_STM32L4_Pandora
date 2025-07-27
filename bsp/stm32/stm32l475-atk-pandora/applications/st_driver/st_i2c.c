@@ -3,6 +3,7 @@
 #include "stm32l4xx_hal.h"
 #include "stm32l4xx_hal_gpio.h"
 #include "stm32l4xx_hal_i2c.h"
+#include "st_i2c.h"
 #include <stdint.h>
 
 
@@ -50,45 +51,69 @@ int st_i2c_init(I2C_TypeDef *I2Cx, uint8_t address)
     return 0;
 }
 
-int st_i2c_write(I2C_TypeDef *I2Cx, uint8_t address, uint8_t data)
+int st_i2c_transmit(I2C_TypeDef *I2Cx, uint8_t address, uint8_t *data, uint8_t length, uint32_t xfer_option)
 {
+    uint8_t xfer_count = 0;
+
+    xfer_count = length;
     /* Wait until I2C is ready */
     while (READ_BIT(I2Cx->ISR, I2C_ISR_BUSY));
+
+    /* Set address */
+    if(xfer_option == ST_I2C_OPT_START_NOEND)
+    {
+        I2Cx->CR2 |= (address << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Pos
+                    | address & 0xFF 
+                    | I2C_CR2_AUTOEND; // Set address and enable reload mode
+
+    }
+    else {
+        I2Cx->CR2 |= (address << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Pos
+                    | address & 0xFF 
+                    | I2C_CR2_AUTOEND; // Set address and enable reload mode
+    }
 
     /* Generate START condition */
     SET_BIT(I2Cx->CR2, I2C_CR2_START);
 
-    /* Wait for START condition to be sent */
-    while (!READ_BIT(I2Cx->ISR, I2C_ISR_TXIS));
+    while(xfer_count > 0)
+    {
+        /* Wait for TXIS flag to be set */
+        while (!READ_BIT(I2Cx->ISR, I2C_ISR_TXIS));
 
-    /* Send the device address with write direction */
-    I2Cx->TXDR = (address << 1) & ~I2C_OAR1_OA1;
-
-    /* Wait for address to be sent */
-    while (!READ_BIT(I2Cx->ISR, I2C_ISR_ADDR));
-
-    /* Clear ADDR flag */
-    __HAL_I2C_CLEAR_FLAG(I2Cx, I2C_FLAG_ADDR);
-
-    /* Send the data byte */
-    I2Cx->TXDR = data;
-
-    /* Wait for data to be transmitted */
-    while (!READ_BIT(I2Cx->ISR, I2C_ISR_TC));
-
-    /* Generate STOP condition */
-    SET_BIT(I2Cx->CR2, I2C_CR2_STOP);
- 
-     return 0;
-}
-{
-
-
+        /* Send the data byte */
+        I2Cx->TXDR = *data++;
+        xfer_count--;
+    }
+    return 0;
 }
 
-int st_i2c_read()
-{
 
+int st_i2c_read(I2C_TypeDef *I2Cx, uint8_t address, uint8_t *data, uint8_t length, uint32_t xfer_option)
+{
+    uint8_t xfer_count = 0;
+    xfer_count = length;
+    /* Wait until I2C is ready */
+    while (READ_BIT(I2Cx->ISR, I2C_ISR_BUSY));
+
+    /* Set address */
+    I2Cx->CR2 |= (address << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Msk
+                 | address & 0xFF 
+                 | I2C_CR2_AUTOEND; `// Set address and enable auto-end
+
+    /* Generate START condition */
+    SET_BIT(I2Cx->CR2, I2C_CR2_START);
+
+    while(xfer_count > 0)
+    {
+        /* Wait for TXIS flag to be set */
+        while (!READ_BIT(I2Cx->ISR, I2C_ISR_TXIS));
+
+        /* Send the data byte */
+        I2Cx->TXDR = *data++;
+        xfer_count--;
+    }
+    return 0;
 }
 
 int st_i2c_deinit()
