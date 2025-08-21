@@ -264,9 +264,6 @@
 /* XML: Extensible Markup Language */
 
 /* end of XML: Extensible Markup Language */
-#define PKG_USING_LUA
-#define PKG_USING_LUA_LATEST_VERSION
-#define LUA_USING_PORTING_V534
 /* end of language packages */
 
 /* multimedia packages */
@@ -431,7 +428,6 @@
 #define BSP_USING_LVGL
 #define BSP_USING_LVGL_DEMO
 #define BSP_USING_ICM20608
-#define BSP_USING_AP3216C
 /* end of Onboard Peripheral Drivers */
 
 /* On-chip Peripheral Drivers */

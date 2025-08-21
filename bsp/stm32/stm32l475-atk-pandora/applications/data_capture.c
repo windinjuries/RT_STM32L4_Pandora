@@ -1,12 +1,13 @@
 #include "rtthread.h"
 #include "rtdevice.h"
 #include "mpu6xxx.h"
+#include "ap3216.h"
 
 #define MPU6XXX_DEVICE_NAME  "i2c3"
 
 uint16_t value = 0;
 /* Test function */
-int mpu6xxx_poll()
+int mpu6xxx_poll(void *args)
 {
     struct mpu6xxx_device *dev;
     struct mpu6xxx_3axes accel, gyro;
@@ -35,6 +36,31 @@ int mpu6xxx_poll()
     }
 
     mpu6xxx_deinit(dev);
+
+    return 0;
+}
+
+
+int ap3216_poll(void *args)
+{
+    ap3216c_data data;
+    int i = 0;
+
+    rt_kprintf("AP3216C init\n");
+    /* Initialize AP3216C */
+    if (ap3216c_init() != 0)
+    {
+        rt_kprintf("AP3216C init failed\n");
+        return -1;
+    }
+    rt_kprintf("AP3216C init succeed\n");
+
+    for(;;)
+    {
+        ap3216c_read_datas(&data);
+        rt_kprintf("IR: %d, ALS: %d, PS: %d\n", data.ir, data.als, data.ps);
+        rt_thread_mdelay(1000);
+    }
 
     return 0;
 }

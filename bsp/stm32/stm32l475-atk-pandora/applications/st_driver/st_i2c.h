@@ -1,6 +1,11 @@
 #ifndef ST_I2C_H__
 #define ST_I2C_H__
 
+#include "stm32l475xx.h"
+#include "stm32l4xx.h"
+#include "stm32l4xx_hal.h"
+#include "stm32l4xx_hal_gpio.h"
+#include "stm32l4xx_hal_i2c.h"
 typedef enum {
     ST_I2C_OPT_START_END,
     ST_I2C_OPT_START_NOEND,
