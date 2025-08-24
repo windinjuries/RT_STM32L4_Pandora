@@ -1,14 +1,12 @@
 {
     // 是否检查插件冲突
     "clangd.detectExtensionConflicts": true,
-    "clangd.path": "C:/Program/LLVM/bin/clangd.exe",
+    // "clangd.path": "C:/Program/LLVM/bin/clangd.exe",
     // 查找的头文件路径，每一项前缀 -I
     "clangd.fallbackFlags": [
         // "-I${workspaceFolder}/components/libc/compilers/common/extension/sys/"
     ],
-
     "clangd.arguments": [
-
         // 在后台自动分析文件（基于complie_commands)
         "--background-index",
         // 标记compelie_commands.json文件的目录位置
@@ -25,17 +23,24 @@
         "--pch-storage=memory",
         "--cross-file-rename",
         "--enable-config",
-        // clang-format style to apply by default when no .clang-format file is found
-        // "--fallback-style=WebKit",
         "--pretty",
         "--clang-tidy",
         "--query-driver=clang++",
-        "--compile-commands-dir=${workspaceFolder}/bsp/stm32/stm32l475-atk-pandora"
+        "--compile-commands-dir=${workspaceFolder}/bsp/stm32/stm32l475-atk-pandora/",
+        "--log-level=trace"
+        // "--format-style=file",
+        // "--format-style=Google"
     ],
-
     "terminal.integrated.profiles.windows": {
         "RTEnvBash": {
-            "path": "C:\\FZSFolder\\project\\env-windows-v2.0.0\\env-windows\\tools\\ConEmu\\ConEmu.exe"
+            "path": "C:/FZSFolder/project/env-windows-v2.0.0/env-windows/tools/ConEmu/ConEmu.exe"
         }
+    },
+    // clang format
+    "[cpp]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
 }

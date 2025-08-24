@@ -1,3 +1,2 @@
-CompileFlags:
-    Add: []
-    CompilationDatabase: ./build/rt-thread
+Diagnostics:
+  Suppress: '*'
