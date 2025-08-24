@@ -25,3 +25,4 @@ int st_i2c_deinit(I2C_TypeDef *I2Cx);
 
 
 #endif /* ST_I2C_H__ */
+

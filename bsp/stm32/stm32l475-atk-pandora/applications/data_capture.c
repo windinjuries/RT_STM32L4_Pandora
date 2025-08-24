@@ -11,7 +11,6 @@ int mpu6xxx_poll(void *args)
 {
     struct mpu6xxx_device *dev;
     struct mpu6xxx_3axes accel, gyro;
-    int i;
 
     /* Initialize mpu6xxx, The parameter is RT_NULL, means auto probing for i2c*/
     dev = mpu6xxx_init(MPU6XXX_DEVICE_NAME, RT_NULL);
@@ -44,7 +43,6 @@ int mpu6xxx_poll(void *args)
 int ap3216_poll(void *args)
 {
     ap3216c_data data;
-    int i = 0;
 
     rt_kprintf("AP3216C init\n");
     /* Initialize AP3216C */
@@ -64,3 +62,4 @@ int ap3216_poll(void *args)
 
     return 0;
 }
+

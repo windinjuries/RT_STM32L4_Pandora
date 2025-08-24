@@ -5,6 +5,7 @@
 #include "stm32l4xx_hal_i2c.h"
 #include "st_i2c.h"
 #include <stdint.h>
+#include <rtthread.h>
 
 static int gpio_init()
 {
@@ -16,8 +17,8 @@ static int gpio_init()
     /* Peripheral clock enable */
     __HAL_RCC_GPIOC_CLK_ENABLE();
     /**I2C1 GPIO Configuration
-    PC0     ------> I2C1_SCL
-    PC1     ------> I2C1_SDA
+    PC0     ------> I2C3_SCL
+    PC1     ------> I2C3_SDA
     */
     GPIO_InitStruct.Pin       = GPIO_PIN_0 | GPIO_PIN_1;
     GPIO_InitStruct.Mode      = GPIO_MODE_AF_OD;
@@ -25,17 +26,23 @@ static int gpio_init()
     GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF4_I2C3;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+    return 0;
 }
 
 int st_i2c_init(I2C_TypeDef *I2Cx, uint8_t address)
 {
     __IO uint32_t tmpreg = 0;
+
+    gpio_init();
+
     /* Peripheral clock enable */
 
     SET_BIT(RCC->APB1ENR1, RCC_APB1ENR1_I2C3EN);
 
+    __HAL_RCC_I2C3_CLK_ENABLE();
+
     /* disable I2Cx */
-    while (tmpreg != 0U);
+    while (tmpreg != 0U) 
     {
         CLEAR_BIT(I2Cx->CR1, I2C_CR1_PE);
         tmpreg = READ_BIT(I2Cx->CR1, I2C_CR1_PE);
@@ -55,30 +62,35 @@ int st_i2c_transmit(I2C_TypeDef *I2Cx, uint8_t address, uint8_t *data, uint8_t l
 
     xfer_count = length;
     /* Wait until I2C is ready */
-    while (READ_BIT(I2Cx->ISR, I2C_ISR_BUSY));
-
-    if (length > 0) {
-        I2Cx->TXDR = data;
-
-        /* Increment Buffer pointer */
-        hi2c->pBuffPtr++;
-
-        hi2c->XferCount--;
-        hi2c->XferSize--;
+    uint32_t timeout = 10000;
+    while (READ_BIT(I2Cx->ISR, I2C_ISR_BUSY) && timeout--)
+    {
+        if(timeout == 0) return -1;
     }
-
     /* Set address */
-    if (xfer_option == ST_I2C_OPT_START_NOEND) {
-        I2Cx->CR2 |= (length << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Msk | address & 0xFF;
 
-    } else {
-        I2Cx->CR2 |= (length << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Msk | address & 0xFF | I2C_CR2_AUTOEND;
+    if (length > 0U) 
+    {
+        /* Preload TX register */
+        /* Write data to TXDR */
+        I2Cx->TXDR = *data++;
+        xfer_count--;
+    }
+    if (xfer_option == ST_I2C_OPT_START_NOEND) 
+    {
+        I2Cx->CR2 = ((length << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Msk) | (address & 0xFF) << 1;
+
+    } 
+    else 
+    {
+        I2Cx->CR2 = ((length << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Msk) | (address & 0xFF) << 1 | I2C_CR2_AUTOEND;
     }
 
     /* Generate START condition */
     SET_BIT(I2Cx->CR2, I2C_CR2_START);
 
-    while (xfer_count > 0) {
+    while (xfer_count > 0) 
+    {
         /* Wait for TXIS flag to be set */
         while (!READ_BIT(I2Cx->ISR, I2C_ISR_TXIS));
 
@@ -86,6 +98,37 @@ int st_i2c_transmit(I2C_TypeDef *I2Cx, uint8_t address, uint8_t *data, uint8_t l
         I2Cx->TXDR = *data++;
         xfer_count--;
     }
+    timeout = 20000;
+    if (xfer_option == ST_I2C_OPT_START_NOEND) 
+    {
+        while (!READ_BIT(I2Cx->ISR, I2C_ISR_TC)) 
+        {
+            timeout--;
+            if (timeout <= 0) 
+            {
+                rt_kprintf("transmit recv TC fail\n");
+                return -1;
+            }
+        }
+    } 
+    else 
+    {
+        while (!READ_BIT(I2Cx->ISR, I2C_ISR_STOPF)) 
+        {
+            timeout--;
+            if (timeout <= 0) 
+            {
+                rt_kprintf("transmit clear STOPF fail\n");
+                return -1;
+            }
+        }
+        SET_BIT(I2Cx->ICR, I2C_ICR_STOPCF);
+    }
+
+    /* Clear Configuration Register 2 */
+    /* Clear CR2 register */
+    CLEAR_BIT(I2Cx->CR2, (I2C_CR2_SADD | I2C_CR2_NBYTES | 
+                          I2C_CR2_RELOAD | I2C_CR2_AUTOEND | I2C_CR2_RD_WRN));
     return 0;
 }
 
@@ -94,22 +137,41 @@ int st_i2c_read(I2C_TypeDef *I2Cx, uint8_t address, uint8_t *data, uint8_t lengt
     uint8_t xfer_count = 0;
     xfer_count         = length;
     /* Wait until I2C is ready */
-    while (READ_BIT(I2Cx->ISR, I2C_ISR_BUSY));
+    uint32_t timeout = 10000;
+//    while (READ_BIT(I2Cx->ISR, I2C_ISR_BUSY) && timeout--)
+//    {
+//        if(timeout == 0) return -1;
+//    }
 
     /* Set address */
-    I2Cx->CR2 |= (length << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Msk | address & 0xFF | I2C_CR2_AUTOEND; // Set address and enable auto-end
+    I2Cx->CR2 = ((length << I2C_CR2_NBYTES_Pos) & I2C_CR2_NBYTES_Msk ) | 
+								 (address & 0xFF) << 1 |
+                  I2C_CR2_RD_WRN | I2C_CR2_AUTOEND; // Set address and enable auto-end
 
     /* Generate START condition */
     SET_BIT(I2Cx->CR2, I2C_CR2_START);
 
-    while (xfer_count > 0) {
+    while (xfer_count > 0) 
+    {
         /* Wait for TXIS flag to be set */
-        while (!READ_BIT(I2Cx->ISR, I2C_ISR_TXIS));
+        while (!READ_BIT(I2Cx->ISR, I2C_ISR_RXNE));
 
         /* Send the data byte */
-        I2Cx->TXDR = *data++;
+        *data = I2Cx->RXDR;
+        data++;
         xfer_count--;
     }
+    timeout = 20000;
+    while (!READ_BIT(I2Cx->ISR, I2C_ISR_STOPF)) 
+    {
+        timeout--;
+        if (timeout <= 0) 
+        {
+            rt_kprintf("clear STOPF fail\n");
+            return -1;
+        }
+    }
+    SET_BIT(I2Cx->ICR, I2C_ICR_STOPCF);
     return 0;
 }
 

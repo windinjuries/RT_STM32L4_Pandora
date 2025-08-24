@@ -32,9 +32,9 @@ int main(void)
     /* set LED0 pin mode to output */
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
 
-    tid1 = rt_thread_create("mpu6xxx", mpu6xxx_poll, RT_NULL, 4096, 20, 10);
+    //tid1 = rt_thread_create("mpu6xxx", mpu6xxx_poll, RT_NULL, 4096, 20, 10);
     tid2 = rt_thread_create("ap3216c", ap3216_poll, RT_NULL, 4096, 20, 10);
-    rt_thread_startup(tid1);
+   // rt_thread_startup(tid1);
     rt_thread_startup(tid2);
 
     while (1)
