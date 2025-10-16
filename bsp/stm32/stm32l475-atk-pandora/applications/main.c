@@ -26,6 +26,7 @@ volatile __attribute__((section(".crc"))) unsigned int crc32 = 0x12345678;
 
 static rt_thread_t tid1 = RT_NULL;
 static rt_thread_t tid2 = RT_NULL;
+static rt_thread_t tid3 = RT_NULL;
 
 int main(void)
 {
@@ -33,9 +34,10 @@ int main(void)
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
 
     //tid1 = rt_thread_create("mpu6xxx", mpu6xxx_poll, RT_NULL, 4096, 20, 10);
-    tid2 = rt_thread_create("ap3216c", ap3216_poll, RT_NULL, 4096, 20, 10);
+    // tid2 = rt_thread_create("ap3216c", ap3216_poll, RT_NULL, 4096, 20, 10);
    // rt_thread_startup(tid1);
-    rt_thread_startup(tid2);
+    // rt_thread_startup(tid2);
+    tid3 = rt_thread_create("spi_slave_poll", spi_slave_poll, RT_NULL, 4096, 20, 10);
 
     while (1)
     {

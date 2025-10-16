@@ -1,6 +1,7 @@
 {
     // 是否检查插件冲突
     "clangd.detectExtensionConflicts": true,
+    "clangd.path": "D:/Program/LLVM/bin/clangd.exe",
     // "clangd.path": "C:/Program/LLVM/bin/clangd.exe",
     // 查找的头文件路径，每一项前缀 -I
     "clangd.fallbackFlags": [
@@ -27,7 +28,7 @@
         "--clang-tidy",
         "--query-driver=clang++",
         "--compile-commands-dir=${workspaceFolder}/bsp/stm32/stm32l475-atk-pandora/",
-        "--log-level=trace"
+        // "--log-level=trace"
         // "--format-style=file",
         // "--format-style=Google"
     ],
