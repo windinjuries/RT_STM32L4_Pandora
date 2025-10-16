@@ -262,6 +262,7 @@
 /* Docking with protocol stacks */
 
 #define SAL_USING_LWIP
+#define SAL_USING_AT
 /* end of Docking with protocol stacks */
 #define SAL_USING_POSIX
 #define RT_USING_NETDEV
@@ -315,6 +316,12 @@
 #define LWIP_SO_LINGER 0
 #define LWIP_NETIF_LOOPBACK 0
 #define RT_LWIP_USING_PING
+#define RT_USING_AT
+#define AT_USING_CLIENT
+#define AT_CLIENT_NUM_MAX 1
+#define AT_USING_SOCKET
+#define AT_USING_CLI
+#define AT_SW_VERSION_NUM 0x10301
 /* end of Network */
 
 /* Memory protection */
@@ -334,6 +341,11 @@
 
 /* IoT - internet of things */
 
+#define PKG_USING_WEBCLIENT
+#define WEBCLIENT_DEBUG
+#define WEBCLIENT_NOT_USE_TLS
+#define PKG_USING_WEBCLIENT_V220
+#define PKG_WEBCLIENT_VER_NUM 0x20200
 
 /* Wi-Fi */
 
@@ -359,6 +371,17 @@
 
 /* end of CYW43439 WiFi */
 /* end of Wi-Fi */
+#define PKG_USING_AT_DEVICE
+#define AT_DEVICE_USING_ESP8266
+#define AT_DEVICE_ESP8266_SOCKET
+#define AT_DEVICE_ESP8266_SAMPLE
+#define AT_DEVICE_ESP8266_SAMPLE_BSP_TAKEOVER
+#define ESP8266_SAMPLE_WIFI_SSID "31-201"
+#define ESP8266_SAMPLE_WIFI_PASSWORD "1234560789"
+#define ESP8266_SAMPLE_CLIENT_NAME "uart2"
+#define ESP8266_SAMPLE_RECV_BUFF_LEN 512
+#define PKG_USING_AT_DEVICE_LATEST_VERSION
+#define PKG_AT_DEVICE_VER_NUM 0x99999
 
 /* IoT Cloud */
 
@@ -553,13 +576,7 @@
 
 #define BSP_USING_STLINK_TO_USART
 #define BSP_USING_QSPI_FLASH
-#define BSP_USING_SPI_LCD
-#define BSP_USING_LVGL
-#define BSP_USING_LVGL_DEMO
 #define BSP_USING_ICM20608
-#define BSP_USING_WIFI
-#define BSP_USING_WIFI_THREAD_INIT
-#define BSP_USING_WIFI_AUTO_INIT
 /* end of Onboard Peripheral Drivers */
 
 /* On-chip Peripheral Drivers */
@@ -583,10 +600,13 @@
 #define BSP_USING_PWM
 #define BSP_USING_PWM4
 #define BSP_USING_PWM4_CH2
-#define BSP_USING_STM32_SDIO
 /* end of On-chip Peripheral Drivers */
 
 /* Board extended module Drivers */
+
+#define BSP_USING_AT_ESP8266
+
+/* May adjust RT_SERIAL_RB_BUFSZ up to 512 if using the Serial V1 device driver */
 
 /* end of Board extended module Drivers */
 /* end of Hardware Drivers Config */
