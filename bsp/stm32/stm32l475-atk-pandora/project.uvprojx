@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__RTTHREAD__, __CLK_TCK=RT_TICK_PER_SECOND, STM32L475xx, RT_USING_LIBC, RT_USING_ARMLIBC, __STDC_LIMIT_MACROS, USE_HAL_DRIVER</Define>
+              <Define>RT_USING_LIBC, RT_USING_ARMLIBC, USE_HAL_DRIVER, __STDC_LIMIT_MACROS, STM32L475xx, __RTTHREAD__, __CLK_TCK=RT_TICK_PER_SECOND</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;packages\at_device-latest\inc;..\libraries\HAL_Drivers;packages\webclient-v2.2.0\inc;..\libraries\HAL_Drivers\drivers;board;applications\st_driver;..\..\..\components\net\lwip\lwip-2.0.3\src\include\ipv4;applications\st_driver\AP3216;..\..\..\components\legacy;..\..\..\components\drivers\wlan;..\..\..\components\drivers\sdio\sdhci\include;..\..\..\components\drivers\phy;..\..\..\components\drivers\include;packages\at_device-latest\class\esp8266;..\..\..\components\drivers\include;packages\EasyFlash-v4.1.0\inc;..\..\..\components\finsh;..\..\..\components\net\lwip\lwip-2.0.3\src\include\netif;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\components\drivers\include;packages\CMSIS-Core-latest\Include;..\..\..\components\drivers\include;..\..\..\components\fal\inc;..\..\..\include;..\..\..\components\net\sal\impl;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\libc\posix\io\eventfd;board\CubeMX_Config\Inc;..\..\..\components\net\sal\include\dfs_net;..\..\..\components\drivers\spi;..\..\..\components\net\sal\include;..\..\..\components\net\at\at_socket;..\..\..\components\net\at\include;board\ports\easyflash;board\ports\fal;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\libc\posix\io\poll;..\..\..\components\drivers\include;..\..\..\components\libc\compilers\common\extension;.;..\..\..\components\drivers\include;..\..\..\components\dfs\dfs_v1\filesystems\devfs;..\..\..\components\net\lwip\lwip-2.0.3\src\include;..\..\..\components\net\netdev\include;..\..\..\components\drivers\smp_call;..\..\..\components\legacy\dfs;packages\stm32l4_cmsis_driver-latest\Include;..\..\..\components\net\sal\include\socket;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\libc\posix\io\epoll;..\..\..\libcpu\arm\common;..\..\..\components\libc\posix\ipc;..\..\..\components\libc\compilers\common\include;packages\stm32l4_hal_driver-latest\Inc;..\libraries\HAL_Drivers\drivers\config;..\libraries\HAL_Drivers\drivers\drv_flash;..\..\..\components\net\sal\include\socket\sys_socket;..\..\..\components\net\lwip\port;packages\mpu6xxx-v1.1.1\inc;..\..\..\components\drivers\spi\sfud\inc;..\..\..\components\dfs\dfs_v1\include;..\..\..\components\drivers\include</IncludePath>
+              <IncludePath>..\..\..\components\net\at\include;..\..\..\components\net\lwip\lwip-2.0.3\src\include\ipv4;..\..\..\components\dfs\dfs_v1\include;..\..\..\components\drivers\include;..\..\..\components\net\netdev\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\net\lwip\lwip-2.0.3\src\include;..\..\..\components\libc\posix\io\epoll;applications\st_driver\AP3216;board\ports\easyflash;..\..\..\components\net\lwip\port;packages\stm32l4_hal_driver-latest\Inc;packages\at_device-latest\inc;..\..\..\include;..\..\..\components\drivers\include;packages\wlan_wiced-v1.0.1;packages\stm32l4_cmsis_driver-latest\Include;board\CubeMX_Config\Inc;packages\webclient-v2.2.0\inc;..\libraries\HAL_Drivers\drivers\config;board\ports\fal;packages\CMSIS-Core-latest\Include;..\..\..\components\libc\compilers\common\include;..\..\..\components\legacy;..\libraries\HAL_Drivers\drivers;..\..\..\components\libc\compilers\common\extension;..\libraries\HAL_Drivers\drivers\drv_flash;..\..\..\components\fal\inc;..\..\..\components\finsh;..\..\..\components\drivers\spi\sfud\inc;..\..\..\components\drivers\wlan;applications\st_driver;..\..\..\components\drivers\include;applications;..\..\..\components\net\sal\include\socket\sys_socket;..\..\..\components\dfs\dfs_v1\filesystems\devfs;..\..\..\libcpu\arm\common;packages\EasyFlash-v4.1.0\inc;..\..\..\components\libc\posix\ipc;..\..\..\components\libc\posix\io\poll;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\libraries\HAL_Drivers;..\..\..\components\drivers\phy;..\..\..\components\drivers\smp_call;..\..\..\components\drivers\include;..\..\..\components\legacy\dfs;..\..\..\components\net\at\at_socket;..\..\..\components\net\lwip\lwip-2.0.3\src\include\netif;..\..\..\components\drivers\include;..\..\..\components\drivers\sdio\sdhci\include;..\..\..\components\net\sal\include\socket;..\..\..\components\drivers\spi;..\..\..\components\libc\posix\io\eventfd;.;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\include;..\..\..\components\libc\compilers\common\extension\fcntl\octal;..\..\..\components\net\sal\include\dfs_net;board;..\..\..\components\net\sal\include;..\..\..\components\net\sal\impl;packages\at_device-latest\class\esp8266</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -385,11 +385,6 @@
           <GroupName>Applications</GroupName>
           <Files>
             <File>
-              <FileName>data_capture.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\data_capture.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\main.c</FilePath>
@@ -410,11 +405,6 @@
           <GroupName>AT</GroupName>
           <Files>
             <File>
-              <FileName>at_utils.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\net\at\src\at_utils.c</FilePath>
-            </File>
-            <File>
               <FileName>at_client.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\net\at\src\at_client.c</FilePath>
@@ -429,11 +419,21 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\components\net\at\src\at_cli.c</FilePath>
             </File>
+            <File>
+              <FileName>at_utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\at\src\at_utils.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>at_device</GroupName>
           <Files>
+            <File>
+              <FileName>at_sample_esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
+            </File>
             <File>
               <FileName>at_socket_esp8266.c</FileName>
               <FileType>1</FileType>
@@ -448,11 +448,6 @@
               <FileName>at_device.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\at_device-latest\src\at_device.c</FilePath>
-            </File>
-            <File>
-              <FileName>at_sample_esp8266.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\at_device-latest\samples\at_sample_esp8266.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2872,29 +2867,14 @@
               <FilePath>..\libraries\HAL_Drivers\drivers\drv_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>drv_pwm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\HAL_Drivers\drivers\drv_pwm.c</FilePath>
-            </File>
-            <File>
               <FileName>drv_qspi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drivers\drv_qspi.c</FilePath>
             </File>
             <File>
-              <FileName>drv_soft_i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\HAL_Drivers\drivers\drv_soft_i2c.c</FilePath>
-            </File>
-            <File>
               <FileName>drv_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drivers\drv_spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>drv_tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\HAL_Drivers\drivers\drv_tim.c</FilePath>
             </File>
             <File>
               <FileName>drv_usart.c</FileName>
@@ -2982,9 +2962,9 @@
           <GroupName>Fal</GroupName>
           <Files>
             <File>
-              <FileName>fal_rtt.c</FileName>
+              <FileName>fal.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\components\fal\src\fal_rtt.c</FilePath>
+              <FilePath>..\..\..\components\fal\src\fal.c</FilePath>
             </File>
             <File>
               <FileName>fal_partition.c</FileName>
@@ -2992,14 +2972,14 @@
               <FilePath>..\..\..\components\fal\src\fal_partition.c</FilePath>
             </File>
             <File>
-              <FileName>fal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\fal\src\fal.c</FilePath>
-            </File>
-            <File>
               <FileName>fal_flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\fal\src\fal_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>fal_rtt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\fal\src\fal_rtt.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3353,9 +3333,9 @@
           <GroupName>Finsh</GroupName>
           <Files>
             <File>
-              <FileName>msh_file.c</FileName>
+              <FileName>msh_parse.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\components\finsh\msh_file.c</FilePath>
+              <FilePath>..\..\..\components\finsh\msh_parse.c</FilePath>
             </File>
             <File>
               <FileName>msh.c</FileName>
@@ -3363,14 +3343,14 @@
               <FilePath>..\..\..\components\finsh\msh.c</FilePath>
             </File>
             <File>
+              <FileName>msh_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\finsh\msh_file.c</FilePath>
+            </File>
+            <File>
               <FileName>shell.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\shell.c</FilePath>
-            </File>
-            <File>
-              <FileName>msh_parse.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\finsh\msh_parse.c</FilePath>
             </File>
             <File>
               <FileName>cmd.c</FileName>
@@ -4228,16 +4208,6 @@
           <GroupName>klibc</GroupName>
           <Files>
             <File>
-              <FileName>rt_vsscanf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\src\klibc\rt_vsscanf.c</FilePath>
-            </File>
-            <File>
-              <FileName>kerrno.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\src\klibc\kerrno.c</FilePath>
-            </File>
-            <File>
               <FileName>kstring.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\src\klibc\kstring.c</FilePath>
@@ -4246,6 +4216,16 @@
               <FileName>rt_vsnprintf_std.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\src\klibc\rt_vsnprintf_std.c</FilePath>
+            </File>
+            <File>
+              <FileName>kerrno.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\src\klibc\kerrno.c</FilePath>
+            </File>
+            <File>
+              <FileName>rt_vsscanf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\src\klibc\rt_vsscanf.c</FilePath>
             </File>
             <File>
               <FileName>kstdio.c</FileName>
@@ -4258,14 +4238,19 @@
           <GroupName>LCD_SPI</GroupName>
           <Files>
             <File>
-              <FileName>st7789.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\st_driver\st7789.c</FilePath>
-            </File>
-            <File>
               <FileName>st_spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\st_driver\st_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>st_spi_slave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\st_driver\st_spi_slave.c</FilePath>
+            </File>
+            <File>
+              <FileName>st7789.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\st_driver\st7789.c</FilePath>
             </File>
             <File>
               <FileName>fonts.c</FileName>
@@ -4510,26 +4495,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>mpu6xxx</GroupName>
-          <Files>
-            <File>
-              <FileName>mpu6xxx_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\mpu6xxx-v1.1.1\samples\mpu6xxx_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>sensor_inven_mpu6xxx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\mpu6xxx-v1.1.1\src\sensor_inven_mpu6xxx.c</FilePath>
-            </File>
-            <File>
-              <FileName>mpu6xxx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\mpu6xxx-v1.1.1\src\mpu6xxx.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>SAL</GroupName>
           <Files>
             <File>
@@ -4593,19 +4558,29 @@
           <GroupName>STM32L4-HAL</GroupName>
           <Files>
             <File>
-              <FileName>stm32l4xx_hal_qspi.c</FileName>
+              <FileName>stm32l4xx_hal_rcc_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_qspi.c</FilePath>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_rcc_ex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32l4xx_hal_i2c_ex.c</FileName>
+              <FileName>stm32l4xx_hal_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_i2c_ex.c</FilePath>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_spi.c</FilePath>
             </File>
             <File>
-              <FileName>stm32l4xx_hal_usart.c</FileName>
+              <FileName>stm32l4xx_hal_crc_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_usart.c</FilePath>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_crc_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_usart_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_usart_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32l4xx_hal_flash_ex.c</FileName>
@@ -4613,14 +4588,104 @@
               <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_flash_ex.c</FilePath>
             </File>
             <File>
+              <FileName>stm32l4xx_hal_lptim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_lptim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_rcc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_cortex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_cortex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_rng.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_rng.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_tim_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_tim_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_ll_sdmmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_ll_sdmmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_i2c_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_i2c_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_uart_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_uart_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_qspi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_qspi.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_sd_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_sd_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_cryp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_cryp.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_spi_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_spi_ex.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32l4xx_hal_sd.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_sd.c</FilePath>
             </File>
             <File>
-              <FileName>stm32l4xx_hal_cryp_ex.c</FileName>
+              <FileName>stm32l4xx_hal_dma_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_cryp_ex.c</FilePath>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_dma_ex.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32l4xx_hal_comp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_comp.c</FilePath>
             </File>
             <File>
               <FileName>stm32l4xx_hal_flash_ramfunc.c</FileName>
@@ -4633,14 +4698,9 @@
               <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_uart.c</FilePath>
             </File>
             <File>
-              <FileName>stm32l4xx_hal_rng.c</FileName>
+              <FileName>stm32l4xx_hal_pwr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_rng.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_tim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_tim.c</FilePath>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_pwr.c</FilePath>
             </File>
             <File>
               <FileName>stm32l4xx_hal_gpio.c</FileName>
@@ -4648,74 +4708,14 @@
               <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>stm32l4xx_hal_pwr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_pwr.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_exti.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_exti.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_dma.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_dma.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_spi_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_spi_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_ll_sdmmc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_ll_sdmmc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_uart_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_uart_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_cortex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_cortex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_dma_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_dma_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_crc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_crc.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32l4xx_hal_pwr_ex.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_pwr_ex.c</FilePath>
             </File>
             <File>
-              <FileName>stm32l4xx_hal_usart_ex.c</FileName>
+              <FileName>stm32l4xx_hal_usart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_usart_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_flash.c</FilePath>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_usart.c</FilePath>
             </File>
             <File>
               <FileName>stm32l4xx_hal.c</FileName>
@@ -4723,44 +4723,9 @@
               <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal.c</FilePath>
             </File>
             <File>
-              <FileName>stm32l4xx_hal_tim_ex.c</FileName>
+              <FileName>stm32l4xx_hal_cryp_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_tim_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_comp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_comp.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_cryp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_cryp.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_lptim.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_lptim.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_sd_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_sd_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_crc_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_crc_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_rcc_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_rcc_ex.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_rcc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_rcc.c</FilePath>
+              <FilePath>packages\stm32l4_hal_driver-latest\Src\stm32l4xx_hal_cryp_ex.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4771,6 +4736,16 @@
               <FileName>webclient.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\webclient-v2.2.0\src\webclient.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>wlan-wiced</GroupName>
+          <Files>
+            <File>
+              <FileName>libwifi_6181_0.2.6_armcm4_keil.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>packages\wlan_wiced-v1.0.1\stm32l4\libwifi_6181_0.2.6_armcm4_keil.lib</FilePath>
             </File>
           </Files>
         </Group>

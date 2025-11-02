@@ -576,7 +576,6 @@
 
 #define BSP_USING_STLINK_TO_USART
 #define BSP_USING_QSPI_FLASH
-#define BSP_USING_ICM20608
 /* end of Onboard Peripheral Drivers */
 
 /* On-chip Peripheral Drivers */
@@ -589,17 +588,7 @@
 #define BSP_UART2_RX_USING_DMA
 #define BSP_UART2_TX_USING_DMA
 #define BSP_USING_ON_CHIP_FLASH
-#define BSP_USING_SPI
-#define BSP_USING_SPI3
-#define BSP_SPI3_TX_USING_DMA
 #define BSP_USING_QSPI
-#define BSP_USING_I2C
-#define BSP_USING_I2C3
-#define BSP_I2C3_SCL_PIN 32
-#define BSP_I2C3_SDA_PIN 33
-#define BSP_USING_PWM
-#define BSP_USING_PWM4
-#define BSP_USING_PWM4_CH2
 /* end of On-chip Peripheral Drivers */
 
 /* Board extended module Drivers */

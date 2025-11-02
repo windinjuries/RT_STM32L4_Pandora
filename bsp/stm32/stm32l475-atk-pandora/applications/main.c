@@ -17,6 +17,7 @@
 #endif /* RT_USING_NANO */
 
 #include "data_capture.h"
+#include "st_spi_slave.h"
 
 volatile __attribute__((section(".ext_ram"))) unsigned char value_ram[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
@@ -37,8 +38,8 @@ int main(void)
     // tid2 = rt_thread_create("ap3216c", ap3216_poll, RT_NULL, 4096, 20, 10);
    // rt_thread_startup(tid1);
     // rt_thread_startup(tid2);
-    tid3 = rt_thread_create("spi_slave_poll", spi_slave_poll, RT_NULL, 4096, 20, 10);
-
+    tid3 = rt_thread_create("spi_slave_poll", st_spi_slave_poll, RT_NULL, 4096, 20, 10);
+    rt_thread_startup(tid3);
     while (1)
     {
         rt_pin_write(LED0_PIN, PIN_HIGH);

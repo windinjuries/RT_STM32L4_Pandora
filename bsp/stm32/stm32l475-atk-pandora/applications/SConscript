@@ -3,7 +3,7 @@ import os
 
 cwd = GetCurrentDir()
 CPPPATH = [cwd]
-src = ['main.c', 'data_capture.c', 'web_http_client.c']
+src = ['main.c', 'web_http_client.c']
 
 if GetDepend(['PKG_USING_RTDUINO']) and not GetDepend(['RTDUINO_NO_SETUP_LOOP']):
     src += ['arduino_main.cpp']
